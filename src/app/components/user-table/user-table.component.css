@@ -1,0 +1,26 @@
+.search-section {
+  width: 60%;
+  margin: 40px auto 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #d5fdff;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}

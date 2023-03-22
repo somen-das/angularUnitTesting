@@ -1,0 +1,76 @@
+<div>
+  <app-nav></app-nav>
+</div>
+
+<!-- search start -->
+<div class="search-section">
+  <mat-form-field class="example-full-width" style="height: 58px">
+    <mat-label> <mat-icon>search</mat-icon> Search Data </mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search User's Data"
+    />
+  </mat-form-field>
+</div>
+
+<!-- search end -->
+
+<div 
+class="table-section"
+style="border: 3px solid rgba(11, 54, 226, 0.668)"
+>
+  <mat-table
+    [dataSource]="dataSource"
+    matSort
+  >
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Name
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Email
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone" style="justify-content: center">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Phone
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="justify-content: center">
+        {{ element.phone }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Website" style="justify-content: center">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Website
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="justify-content: center">
+        {{ element.website }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="CompanyName" style="justify-content: center">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        CompanyName
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="justify-content: center">
+        {{ element.company.name }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+<hr style="border: 2px solid rgba(11, 54, 226, 0.668)">
+  <mat-paginator
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  ></mat-paginator>
+</div>
